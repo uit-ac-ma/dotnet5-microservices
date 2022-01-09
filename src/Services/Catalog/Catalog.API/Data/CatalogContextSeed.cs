@@ -12,7 +12,8 @@ namespace Catalog.API.Data
         /// <param name="products"></param>
         public static void SeedData(IMongoCollection<Product> products)
         {
-            bool existProduct = products.Find(product => true).Any();
+            var filter = Builders<Product>.Filter.Empty;
+            bool existProduct = products.Find(filter).Any();
 
             if (!existProduct) products.InsertManyAsync(GetPreconfiguredProducts());
         }
