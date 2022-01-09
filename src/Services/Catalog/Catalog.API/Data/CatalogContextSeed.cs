@@ -10,11 +10,11 @@ namespace Catalog.API.Data
         /// Seed product Data
         /// </summary>
         /// <param name="products"></param>
-        internal static void SeedData(IMongoCollection<Product> products)
+        public static void SeedData(IMongoCollection<Product> products)
         {
-            if (products.Find(product => true).Any()) return;
+            bool existProduct = products.Find(product => true).Any();
 
-            products.InsertManyAsync(GetPreconfiguredProducts());
+            if (!existProduct) products.InsertManyAsync(GetPreconfiguredProducts());
         }
 
         /// <summary>

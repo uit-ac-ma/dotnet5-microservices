@@ -101,10 +101,11 @@ namespace Catalog.API.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id:length(24)}", Name = "DeleteProduct")]
-        [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(Product), (int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> DeleteProductAsync(string id)
         {
-            return Ok(await _productRepository.DeleteProduct(id));
+            await _productRepository.DeleteProduct(id);
+            return NoContent();
         }
     }
 }
