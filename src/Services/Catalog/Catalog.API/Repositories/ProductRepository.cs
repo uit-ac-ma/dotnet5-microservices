@@ -23,10 +23,10 @@ namespace Catalog.API.Repositories
         {
             var filter = Builders<Product>.Filter.Eq(product => product.Id, productId);
 
-            var result = await _catalogContext.Products.DeleteOneAsync(filter);
+            var deleteProductResult = await _catalogContext.Products.DeleteOneAsync(filter);
 
-            return result.IsAcknowledged &&
-                    result.DeletedCount > 0;
+            return deleteProductResult.IsAcknowledged &&
+                    deleteProductResult.DeletedCount > 0;
         }
 
         public async Task<Product> GetProduct(string id)
@@ -53,10 +53,10 @@ namespace Catalog.API.Repositories
 
         public async Task<bool> UpdateProduct(Product product)
         {
-            var result = await _catalogContext.Products.ReplaceOneAsync(filter: product => product.Id == product.Id, replacement: product);
+            var updateProductResult = await _catalogContext.Products.ReplaceOneAsync(filter: product => product.Id == product.Id, replacement: product);
 
-            return result.IsAcknowledged &&
-                    result.ModifiedCount > 0;
+            return updateProductResult.IsAcknowledged &&
+                    updateProductResult.ModifiedCount > 0;
         }
     }
 }

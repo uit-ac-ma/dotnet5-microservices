@@ -50,6 +50,7 @@ namespace Catalog.API.Repositories
         /// <summary>
         /// Delete Product
         /// </summary>
+        /// <remarks>Hard delete</remarks>
         /// <param name="productId"></param>
         /// <returns></returns>        
         Task<bool> DeleteProduct(string productId);
