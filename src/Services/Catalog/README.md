@@ -1,4 +1,4 @@
-# Catalog.API
+# Catalog service
 
 ## References
 - [Debug .NET Core within a container](https://code.visualstudio.com/docs/containers/debug-netcore#_walkthrough)
