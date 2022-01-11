@@ -1,7 +1,9 @@
 # Basket service
 
+## References
+- [Portainer](https://portainer.readthedocs.io/en/stable/deployment.html) 
 
-# Helpful cmdlets
+## Helpful cmdlets
 - `dotnet new webapi --name Basket.API --no-https` : Generate WebApi with no https support
 - `docker run -d -p 6379:6379 --name aspnetrun-redis redis` : run redis in container
 - `docker logs -f aspnetrun-redis` : Visualize the container logs
