@@ -30,6 +30,11 @@ namespace Basket.API
 
             services.AddControllers();
 
+            // Register Redis Caching Database
+            services.AddStackExchangeRedisCache(options => {
+                options.Configuration = Configuration.GetValue<string>("CacheSettings:ConnectionString");
+            });
+
             // Setup Swagger Gen
             services.AddSwaggerGen(options =>
             {
