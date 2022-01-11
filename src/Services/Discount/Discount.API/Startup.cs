@@ -1,16 +1,19 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
-using Catalog.API.Data;
-using Catalog.API.Repositories;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-namespace Catalog.API
+namespace Discount.API
 {
     public class Startup
     {
@@ -32,7 +35,7 @@ namespace Catalog.API
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Catalog.API",
+                    Title = "Discount.API",
                     Description = "An ASP.NET Core Web API",
                     TermsOfService = new Uri("https://example.com/terms"),
                     Contact = new OpenApiContact
@@ -46,11 +49,6 @@ namespace Catalog.API
                 var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
             });
-
-            // Scoped objects are the same within a request, but different across different requests.
-            services.AddScoped<ICatalogContext, CatalogContext>();
-            services.AddScoped<IProductRepository, ProductRepository>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,7 +60,7 @@ namespace Catalog.API
                 app.UseSwagger();
                 app.UseSwaggerUI(options =>
                 {
-                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Catalog.API v1");
+                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Discount.API v1");
                     options.RoutePrefix = string.Empty; // see: https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-6.0&tabs=visual-studio-code#add-and-configure-swagger-middleware
                 });
             }
