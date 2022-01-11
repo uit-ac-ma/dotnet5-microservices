@@ -47,12 +47,12 @@
             "dockerBuild": {
                 "tag": "dotnet5microservices:dev",
                 "target": "base",
-                "dockerfile": "${workspaceFolder}/src/Services/Catalog/Catalog.API/Dockerfile",
+                "dockerfile": "${workspaceFolder}/src/Services/Basket/Basket.API/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/src/Services/Catalog/Catalog.API/Catalog.API.csproj"
+                "appProject": "${workspaceFolder}/src/Services/Basket/Basket.API/Basket.API.csproj"
             }
         },
         {
@@ -63,12 +63,12 @@
             ],
             "dockerBuild": {
                 "tag": "dotnet5microservices:latest",
-                "dockerfile": "${workspaceFolder}/src/Services/Catalog/Catalog.API/Dockerfile",
+                "dockerfile": "${workspaceFolder}/src/Services/Basket/Basket.API/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/src/Services/Catalog/Catalog.API/Catalog.API.csproj"
+                "appProject": "${workspaceFolder}/src/Services/Basket/Basket.API/Basket.API.csproj"
             }
         },
         {
@@ -79,7 +79,7 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/src/Services/Catalog/Catalog.API/Catalog.API.csproj",
+                "appProject": "${workspaceFolder}/src/Services/Basket/Basket.API/Basket.API.csproj",
                 "enableDebugging": true
             }
         },
@@ -91,7 +91,7 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/src/Services/Catalog/Catalog.API/Catalog.API.csproj"
+                "appProject": "${workspaceFolder}/src/Services/Basket/Basket.API/Basket.API.csproj"
             }
         }
     ]
