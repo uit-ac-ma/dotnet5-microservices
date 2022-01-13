@@ -1,10 +1,11 @@
+using Discount.gRPC.Extensions;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
 
 namespace Discount.gRPC
 {
@@ -12,7 +13,10 @@ namespace Discount.gRPC
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+            // PostgresSql Migrations and seeding initial data
+            host.MigrateDatabase<Program>();
+            host.Run();
         }
 
         // Additional configuration is required to successfully run gRPC on macOS.

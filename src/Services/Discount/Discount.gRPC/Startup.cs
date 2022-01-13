@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Discount.gRPC.Repositories;
 
 namespace Discount.gRPC
 {
@@ -17,6 +18,9 @@ namespace Discount.gRPC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddGrpc();
+
+            // Register repositories
+            services.AddScoped<IDiscountRepository, DiscountRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
