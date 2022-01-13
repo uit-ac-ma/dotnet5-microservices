@@ -1,6 +1,6 @@
 # Discount
 - Discount.API
-- Discount.gRPC
+- Discount.gRPC : Discount gRPC Client (Expose service)
 
 ## References
 - [Microsoft gRPC Tutorials](https://docs.microsoft.com/en-us/aspnet/core/tutorials/grpc/grpc-start?view=aspnetcore-6.0&tabs=visual-studio-code)
