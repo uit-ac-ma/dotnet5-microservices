@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Reflection;
+using Discount.API.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +24,9 @@ namespace Discount.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            // Register repositories
+            services.AddScoped<IDiscountRepository, DiscountRepository>();
 
             // Setup Swagger Gen
             services.AddSwaggerGen(options =>
