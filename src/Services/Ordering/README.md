@@ -33,6 +33,12 @@ This will contain all entities, enums, exceptions, interfaces, types and logic s
 
 `Has no dependencies 😜`
 
+## MediatR and CQRS
+![alt text](https://user-images.githubusercontent.com/69347197/149569560-63b0670d-3659-4cc0-9ed5-e7f479bf1ad9.png)
+
+![alt text](https://user-images.githubusercontent.com/69347197/149571430-52177ec4-a7aa-431b-9bb7-c6f408a5e5b1.png)
+
+
 ## References
 - [Jason Taylor CA conference](https://www.youtube.com/watch?app=desktop&v=5OtUm1BLmG0mG0)
 - [Jason Taylor CA](https://jasontaylor.dev/clean-architecture-getting-started/)
