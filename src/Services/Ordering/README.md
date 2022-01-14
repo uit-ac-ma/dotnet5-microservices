@@ -38,6 +38,9 @@ This will contain all entities, enums, exceptions, interfaces, types and logic s
 
 ![alt text](https://user-images.githubusercontent.com/69347197/149571430-52177ec4-a7aa-431b-9bb7-c6f408a5e5b1.png)
 
+- MediatR pipelines for Behaviours code
+![alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.roundthecode.com%2Fdotnet%2Fhooking-into-mediator-pipelines&psig=AOvVaw0_sR3s5dXfLHOG-nHJQyNU&ust=1642283153854000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJCRh9ObsvUCFQAAAAAdAAAAABAg)
+
 
 ## References
 - [Jason Taylor CA conference](https://www.youtube.com/watch?app=desktop&v=5OtUm1BLmG0mG0)
