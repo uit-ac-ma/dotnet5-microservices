@@ -38,6 +38,7 @@ This will contain all entities, enums, exceptions, interfaces, types and logic s
 - [Jason Taylor CA](https://jasontaylor.dev/clean-architecture-getting-started/)
 - [Gill Cleeren CA](https://www.pluralsight.com/courses/architecting-asp-dot-net-core-applications-best-practices)
 -[VS Code add reference project](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-add-reference)
+- [ValueObject DDD](https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/implement-value-objects)
 
 ## Helpful Cmdlets
 - `dotnet add ./Ordering.Application/Ordering.Application.csproj reference ./Ordering.Domain/Ordering.Domain.csproj`: add `Ordering.Domain.csproj` to `Ordering.Applicaiont.csproj`

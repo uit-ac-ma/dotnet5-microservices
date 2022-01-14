@@ -5,6 +5,25 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/Thumbs.db": true
+        "**/Thumbs.db": true,
+        "[!s]*/**": true,
+        "s[!r]*/**": true,
+        "sr[!c]*/**": true,
+        "src/[!S]*/**": true,
+        "src/S[!e]*/**": true,
+        "src/Se[!r]*/**": true,
+        "src/Ser[!v]*/**": true,
+        "src/Serv[!i]*/**": true,
+        "src/Servi[!c]*/**": true,
+        "src/Servic[!e]*/**": true,
+        "src/Service[!s]*/**": true,
+        "src/Services/[!O]*/**": true,
+        "src/Services/O[!r]*/**": true,
+        "src/Services/Or[!d]*/**": true,
+        "src/Services/Ord[!e]*/**": true,
+        "src/Services/Orde[!r]*/**": true,
+        "src/Services/Order[!i]*/**": true,
+        "src/Services/Orderi[!n]*/**": true,
+        "src/Services/Orderin[!g]*/**": true
     }
 }
