@@ -3,11 +3,11 @@ using Discount.gRPC.Protos;
 
 namespace Basket.API.GrpcServices
 {
-    public class DiscountGrpcService
+    public class DiscountgRPCService
     {
         private readonly DiscountProtoService.DiscountProtoServiceClient _discountProtoService;
 
-        public DiscountGrpcService(DiscountProtoService.DiscountProtoServiceClient discountProtoService)
+        public DiscountgRPCService(DiscountProtoService.DiscountProtoServiceClient discountProtoService)
         {
             _discountProtoService = discountProtoService;
         }

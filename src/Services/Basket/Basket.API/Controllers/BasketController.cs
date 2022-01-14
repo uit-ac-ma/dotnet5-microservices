@@ -12,12 +12,12 @@ namespace Basket.API.Controllers
     public class BasketController : ControllerBase
     {
         private readonly IBasketRepository _basketRepository;
-        private readonly DiscountGrpcService _discountGrpcService;
+        private readonly DiscountgRPCService _discountgRPCService;
 
-        public BasketController(IBasketRepository basketRepository, DiscountGrpcService discountGrpcService)
+        public BasketController(IBasketRepository basketRepository, DiscountgRPCService discountgRPCService)
         {
             _basketRepository = basketRepository;
-            _discountGrpcService = discountGrpcService;
+            _discountgRPCService = discountgRPCService;
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace Basket.API.Controllers
             // consume Discount Grpc
             foreach (var item in basket.Items)
             {
-                var coupon = await _discountGrpcService.GetDiscount(item.ProductName);
+                var coupon = await _discountgRPCService.GetDiscount(item.ProductName);
                 item.Price -= coupon.Amount;
             }
 
