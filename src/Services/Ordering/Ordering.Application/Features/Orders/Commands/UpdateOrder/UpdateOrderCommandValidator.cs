@@ -1,10 +1,10 @@
 using FluentValidation;
 
-namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
+namespace Ordering.Application.Features.Orders.Commands.UpdateOrder
 {
-    public class CheckoutOrderCommandValidator : AbstractValidator<CheckoutOrderCommand>
+    public class UpdateOrderCommandValidator : AbstractValidator<UpdateOrderCommand>
     {
-        public CheckoutOrderCommandValidator()
+        public UpdateOrderCommandValidator()
         {
             RuleFor(p => p.UserName)
                 .NotEmpty().WithMessage("{UserName} is required.")
