@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Ordering.Application.Behaviours
 {
-    public class UnhandledExceptionBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>   where TRequest : MediatR.IRequest<TResponse> 
+     /// <summary>
+    /// Gathering unhandled errors through MediatR Pipelines
+    /// Before performing any request
+    /// Basically, it seems like a wrapper of Handlers to avoid errors while the execution of handlers
+    /// </summary>
+    /// <typeparam name="TRequest"></typeparam>
+    /// <typeparam name="TResponse"></typeparam>
+    public class UnhandledExceptionBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : MediatR.IRequest<TResponse> 
     {
         private readonly ILogger<TRequest> _logger;
 

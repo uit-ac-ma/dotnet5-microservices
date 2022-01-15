@@ -13,6 +13,7 @@ namespace Ordering.Application.Behaviours
     /// Gathering fluent.validation errors through MediatR Pipelines using fluent Validation reflexion
     /// In this case from UpdateOrderCommandValidator and CheckoutOrderCommandValidator
     /// Before performing any request
+    /// Basically, it seems like a wrapper of Handlers to avoid errors while the execution of handlers
     /// </summary>
     /// <typeparam name="TRequest"></typeparam>
     /// <typeparam name="TResponse"></typeparam>
