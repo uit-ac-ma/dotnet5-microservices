@@ -26,7 +26,7 @@ namespace Ordering.Infrastructure.Persistence
                     UserName = "Bob",
                     FirstName = "FirstName",
                     LastName = "LastName",
-                    EmailAddress = "email.address@gmail.com",
+                    EmailAddress = "gdasoft18@gmail.com",
                     AddressLine = "Address Line",
                     Country = "Contry",
                     TotalPrice = 350

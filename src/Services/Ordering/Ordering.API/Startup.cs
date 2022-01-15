@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Ordering.Application;
+using Ordering.Infrastructure;
 using System;
 using System.IO;
 using System.Reflection;
@@ -28,7 +29,7 @@ namespace Ordering.API
             // Register Application
             services.AddApplicationServices();
             // Register Infrastructure
-            // services.AddInfrastructureServices();
+            services.AddInfrastructureServices(Configuration);
 
             // Setup Swagger Gen
             services.AddSwaggerGen(options =>
