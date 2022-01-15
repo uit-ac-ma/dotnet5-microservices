@@ -9,6 +9,8 @@ services:
     image: postgres
   orderdb:
     image: mcr.microsoft.com/mssql/server
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
   pgadmin:
     image: dpage/pgadmin4
 
@@ -43,7 +45,7 @@ services:
       dockerfile: Services/Ordering/Ordering.API/Dockerfile
 
 volumes:
-  mongo_data:
-  portainer_data:
-  postgres_data:
-  pgadmin_data:
+  mongo_data: null
+  portainer_data: null
+  postgres_data: null
+  pgadmin_data: null
