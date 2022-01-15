@@ -12,7 +12,7 @@ All dependencies flow inwards and **Core** has no dependency on any other layer.
 
 ![alt text](https://i0.wp.com/jasontaylor.dev/wp-content/uploads/2020/01/Figure-01-2.png?w=531&ssl=1)
 
-## Ordering.API
+## Ordering.API - Presentation
 This layer depends on both the Application and Infrastructure layers, however, the dependency on Infrastructure is only to support dependency injection. Therefore only Startup.cs should reference Infrastructure.
 
 `Ordering.API depends on Ordering.Application & Ordering.Infrastructure`
