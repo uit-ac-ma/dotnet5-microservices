@@ -51,3 +51,4 @@ This will contain all entities, enums, exceptions, interfaces, types and logic s
 
 ## Helpful Cmdlets
 - `dotnet add ./Ordering.Application/Ordering.Application.csproj reference ./Ordering.Domain/Ordering.Domain.csproj`: add `Ordering.Domain.csproj` to `Ordering.Applicaiont.csproj`
+- `dotnet ef migrations add InitialCreate --project ../Ordering.Infrastructure/Ordering.Infrastructure.csproj`: run this command from `Ordering.API` to generate a EF Migration in `Ordering.Infrastructure`.
