@@ -5,16 +5,16 @@ namespace Basket.API.Entities
 {
     public class ShoppingCart
     {
-        public string Username { get; set; }
+        public string UserName { get; set; }
         public List<ShoppingCartItem> Items { get; set; } = new List<ShoppingCartItem>();
 
         public ShoppingCart()
         {
         }
 
-        public ShoppingCart(string username)
+        public ShoppingCart(string userName)
         {
-            this.Username = username;
+            this.UserName = userName;
         }
 
         /// <summary>
