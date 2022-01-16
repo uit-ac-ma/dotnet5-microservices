@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Discount.gRPC.Protos;
 using Basket.API.GrpcServices;
+using MassTransit;
 
 namespace Basket.API
 {
@@ -40,9 +41,20 @@ namespace Basket.API
             // Register/Configure gRPC Client
             services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>
                 (options => options.Address = new Uri(Configuration["GrpcSettings:DiscountUrl"]));
-            
-            // Register Services
+
+            // Register gRPC Services
             services.AddScoped<DiscountgRPCService>();
+
+            // MassTransit-RabbitMQ Configuration
+            services.AddMassTransit(config =>
+            {
+                // Configure MassTransit to use RabbitMQ for the transport.
+                config.UsingRabbitMq((ctx, cfg) =>
+                {
+                    cfg.Host(Configuration["EventBusSettings:HostAddress"]);
+                });
+            });
+            services.AddMassTransitHostedService();
 
             // Setup Swagger Gen
             services.AddSwaggerGen(options =>
