@@ -1,15 +1,16 @@
-using System;
-using System.IO;
-using System.Reflection;
+using Basket.API.GrpcServices;
 using Basket.API.Repositories;
+using Discount.gRPC.Protos;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Discount.gRPC.Protos;
-using Basket.API.GrpcServices;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace Basket.API
 {
@@ -37,12 +38,26 @@ namespace Basket.API
             // Register Repositories
             services.AddScoped<IBasketRepository, BasketRepository>();
 
+            // Register Automapper
+            services.AddAutoMapper(typeof(Startup));
+
             // Register/Configure gRPC Client
             services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>
                 (options => options.Address = new Uri(Configuration["GrpcSettings:DiscountUrl"]));
-            
-            // Register Services
+
+            // Register gRPC Services
             services.AddScoped<DiscountgRPCService>();
+
+            // MassTransit-RabbitMQ Configuration
+            services.AddMassTransit(config =>
+            {
+                // Configure MassTransit to use RabbitMQ for the transport.
+                config.UsingRabbitMq((ctx, cfg) =>
+                {
+                    cfg.Host(Configuration["EventBusSettings:HostAddress"]);
+                });
+            });
+            services.AddMassTransitHostedService();
 
             // Setup Swagger Gen
             services.AddSwaggerGen(options =>

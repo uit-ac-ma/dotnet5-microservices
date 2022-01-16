@@ -47,12 +47,12 @@
             "dockerBuild": {
                 "tag": "dotnet5microservices:dev",
                 "target": "base",
-                "dockerfile": "${workspaceFolder}/src/Services/Basket/Basket.API/Dockerfile",
+                "dockerfile": "${workspaceFolder}/src/Services/Ordering/Ordering.API/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/src/Services/Basket/Basket.API/Basket.API.csproj"
+                "appProject": "${workspaceFolder}/src/Services/Ordering/Ordering.API/Ordering.API.csproj"
             }
         },
         {
@@ -63,12 +63,12 @@
             ],
             "dockerBuild": {
                 "tag": "dotnet5microservices:latest",
-                "dockerfile": "${workspaceFolder}/src/Services/Basket/Basket.API/Dockerfile",
+                "dockerfile": "${workspaceFolder}/src/Services/Ordering/Ordering.API/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/src/Services/Basket/Basket.API/Basket.API.csproj"
+                "appProject": "${workspaceFolder}/src/Services/Ordering/Ordering.API/Ordering.API.csproj"
             }
         },
         {
@@ -79,8 +79,9 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/src/Services/Basket/Basket.API/Basket.API.csproj",
-                "enableDebugging": true
+                "appProject": "${workspaceFolder}/src/Services/Ordering/Ordering.API/Ordering.API.csproj",
+                "enableDebugging": true,
+                "configureSsl": false
             }
         },
         {
@@ -91,7 +92,7 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/src/Services/Basket/Basket.API/Basket.API.csproj"
+                "appProject": "${workspaceFolder}/src/Services/Ordering/Ordering.API/Ordering.API.csproj"
             }
         }
     ]
