@@ -1,16 +1,16 @@
-using System;
-using System.IO;
-using System.Reflection;
+using Basket.API.GrpcServices;
 using Basket.API.Repositories;
+using Discount.gRPC.Protos;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Discount.gRPC.Protos;
-using Basket.API.GrpcServices;
-using MassTransit;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace Basket.API
 {
@@ -37,6 +37,9 @@ namespace Basket.API
 
             // Register Repositories
             services.AddScoped<IBasketRepository, BasketRepository>();
+
+            // Register Automapper
+            services.AddAutoMapper(typeof(Startup));
 
             // Register/Configure gRPC Client
             services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>
