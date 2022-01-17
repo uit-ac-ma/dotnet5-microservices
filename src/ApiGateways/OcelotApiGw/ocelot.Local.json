@@ -77,7 +77,7 @@
       "RateLimitOptions": {
         "ClientWhitelist": [],
         "EnableRateLimiting": true,
-        "Period": "3s",
+        "Period": "3s", //1 request per 3s, else it will give 429 too many request
         "PeriodTimespan": 1,
         "Limit": 1
       }
