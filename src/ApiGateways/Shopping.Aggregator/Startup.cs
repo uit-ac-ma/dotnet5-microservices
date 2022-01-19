@@ -58,8 +58,11 @@ namespace Shopping.Aggregator
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Shopping.Aggregator v1");
-                options.RoutePrefix = string.Empty; // see: https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-6.0&tabs=visual-studio-code#add-and-configure-swagger-middleware
+                app.UseSwaggerUI(options =>
+                {
+                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Shopping.Aggregator v1");
+                    options.RoutePrefix = string.Empty; // see: https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-6.0&tabs=visual-studio-code#add-and-configure-swagger-middleware
+                });
             }
 
             app.UseRouting();
