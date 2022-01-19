@@ -21,7 +21,7 @@
       "launchBrowser": true,
       "applicationUrl": "http://localhost:5010",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Local"
+        "ASPNETCORE_ENVIRONMENT": "Development" // Turn this Local, for debug mode
       }
     }
   }
