@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Shopping.Aggregator.Extensions;
 using Shopping.Aggregator.Services;
 using Shopping.Aggregator.Services.Interfaces;
 using System;
@@ -28,13 +29,16 @@ namespace Shopping.Aggregator
 
             // Register HttpClient
             services.AddHttpClient<ICatalogService, CatalogService>(c =>
-                c.BaseAddress = new Uri(Configuration["ApiSettings:CatalogUrl"]));
+                c.BaseAddress = new Uri(Configuration["ApiSettings:CatalogUrl"]))
+                .UseRetryPolicy();
 
             services.AddHttpClient<IBasketService, BasketService>(c =>
-                c.BaseAddress = new Uri(Configuration["ApiSettings:BasketUrl"]));
+                c.BaseAddress = new Uri(Configuration["ApiSettings:BasketUrl"]))
+                .UseRetryPolicy();
 
             services.AddHttpClient<IOrderService, OrderService>(c =>
-                c.BaseAddress = new Uri(Configuration["ApiSettings:OrderingUrl"]));
+                c.BaseAddress = new Uri(Configuration["ApiSettings:OrderingUrl"]))
+                .UseRetryPolicy();
 
             // Setup Swagger Gen
             services.AddSwaggerGen(options =>
