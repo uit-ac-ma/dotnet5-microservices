@@ -1,3 +1,4 @@
+using Shopping.Aggregator.Extensions;
 using Shopping.Aggregator.Models;
 using Shopping.Aggregator.Services.Interfaces;
 using System.Net.Http;
@@ -14,9 +15,10 @@ namespace Shopping.Aggregator.Services
             _httpClient = httpClient;
         }
 
-        public Task<BasketModel> GetBasketAsync(string userName)
+        public async Task<BasketModel> GetBasketAsync(string userName)
         {
-            throw new System.NotImplementedException();
+            var response = await _httpClient.GetAsync($"/api/v1/Basket/{userName}");
+            return await response.ReadContentAsAsync<BasketModel>();
         }
     }
 }

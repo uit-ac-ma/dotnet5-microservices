@@ -1,3 +1,4 @@
+using Shopping.Aggregator.Extensions;
 using Shopping.Aggregator.Models;
 using Shopping.Aggregator.Services.Interfaces;
 using System.Collections.Generic;
@@ -15,9 +16,10 @@ namespace Shopping.Aggregator.Services
             _httpClient = httpClient;
         }
 
-        public Task<IEnumerable<OrderResponseModel>> GetOrdersByUserNameAsync(string userName)
+        public async Task<IEnumerable<OrderResponseModel>> GetOrdersByUserNameAsync(string userName)
         {
-            throw new System.NotImplementedException();
+            var response = await _httpClient.GetAsync($"/api/v1/Order/{userName}");
+            return await response.ReadContentAsAsync<List<OrderResponseModel>>();
         }
     }
 }
