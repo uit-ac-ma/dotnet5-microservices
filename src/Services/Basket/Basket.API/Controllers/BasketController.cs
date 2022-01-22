@@ -63,8 +63,9 @@ namespace Basket.API.Controllers
         }
 
         /// <summary>
-        /// Get Basket by username Async
+        /// Delete Basket by username Async
         /// </summary>
+        /// <remarks>Hard delete</remarks>
         /// <param name="userName"></param>
         /// <returns></returns>
         [HttpDelete("{username}", Name = "DeleteBasket")]
