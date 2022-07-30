@@ -10,3 +10,12 @@
 - `docker exec -it aspnetrun-redis /bin/bash` : Connect to a running containers and execute commends
 - `set keyname 'value'`: Redis is a key value, store value into 'keyname'
 - `get keyname` : Get value from 'keyname' key, the value is 'value'
+
+
+## Verify data
+- `docker exec -it basketdb redis-cli` : Connect to Basketdb.
+- `Keys *`: Show all keys.
+- `type key`: Get Type of Key.
+    -  `get <key>` : For "string".
+    - `hgetall <key>`: For "hash". 
+    - [For more type](https://stackoverflow.com/a/44444966)
