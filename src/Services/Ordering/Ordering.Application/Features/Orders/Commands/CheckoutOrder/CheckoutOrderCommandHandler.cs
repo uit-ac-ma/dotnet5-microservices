@@ -24,7 +24,6 @@ namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
             _emailService = emailService;
             _mapper = mapper;
             _logger = logger;
-            _logger = logger;
         }
 
         public async Task<int> Handle(CheckoutOrderCommand request, CancellationToken cancellationToken)
