@@ -21,6 +21,16 @@ namespace Ordering.Infrastructure.Mail
 
         public async Task<bool> SendEmailAsync(Email email)
         {
+            /// <summary>
+            /// For SendBox, ignore sending emails feature
+            /// </summary>
+            /// <returns></returns>
+            if (string.IsNullOrWhiteSpace(_emailSettings.ApiKey))
+            {
+                _logger.LogInformation("Sending Email is disabled, non provider key has been found.");
+                return true;
+            }
+
             var client = new SendGridClient(_emailSettings.ApiKey);
 
             var subject = email.Subject;

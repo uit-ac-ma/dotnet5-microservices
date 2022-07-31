@@ -1,5 +1,6 @@
 using FluentValidation;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -17,13 +18,15 @@ namespace Ordering.Application.Behaviours
     /// </summary>
     /// <typeparam name="TRequest"></typeparam>
     /// <typeparam name="TResponse"></typeparam>
-    public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : MediatR.IRequest<TResponse> 
+    public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : MediatR.IRequest<TResponse>
     {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
+        private readonly ILogger _logger;
 
-        public ValidationBehaviour(IEnumerable<IValidator<TRequest>> validators)
+        public ValidationBehaviour(IEnumerable<IValidator<TRequest>> validators, ILogger logger)
         {
             _validators = validators;
+            _logger = logger;
         }
 
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
@@ -34,6 +37,8 @@ namespace Ordering.Application.Behaviours
 
                 var validationResults = await Task.WhenAll(_validators.Select(v => v.ValidateAsync(context, cancellationToken)));
                 var failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();
+
+                var a = $"Error: {string.Join(',', failures)}";
 
                 if (failures.Count != 0)
                     throw new ValidationException(failures);

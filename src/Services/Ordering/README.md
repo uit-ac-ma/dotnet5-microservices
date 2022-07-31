@@ -1,5 +1,6 @@
 # Ordering
 Clean Architecture using DDD, CQRS, Mediator, Automapper, EF Core, Sql Server
+Sending email functionality using [SendGrid provider](https://app.sendgrid.com/), **If the ApiKey not provided then the send email willbe skipped**, the *key* is configured from `appsetting.json` file.
 
 ## Overview CA
 With Clean Architecture, the **Domain** and **Application** layers are at the centre of the design. This is known as the **Core** of the system.
