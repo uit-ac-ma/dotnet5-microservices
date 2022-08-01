@@ -1,4 +1,4 @@
-name: .NET
+name: CI Pipelines
 
 on:
   push:
@@ -21,5 +21,5 @@ jobs:
       run: dotnet restore ./src/microservices.sln
     - name: Build
       run: dotnet build ./src/microservices.sln --no-restore
-    # - name: Test
-    #   run: dotnet test --no-build --verbosity normal
+    - name: Run Unit Test
+      run: dotnet test ./src/microservices.sln --no-build --verbosity normal
