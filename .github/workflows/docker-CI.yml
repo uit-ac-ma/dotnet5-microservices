@@ -21,7 +21,7 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v2
         with:
-          context: ./src
-          file: ./WebApps/AspnetRunBasics/Dockerfile
+          context: .
+          file: ./src/WebApps/AspnetRunBasics/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/webui:latest
