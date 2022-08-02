@@ -24,4 +24,4 @@ jobs:
           context: .
           file: ./src/WebApps/AspnetRunBasics/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/WebUI:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/webui:latest
