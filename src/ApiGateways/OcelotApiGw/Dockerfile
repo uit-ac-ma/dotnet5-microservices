@@ -6,7 +6,7 @@ COPY *.csproj ./
 RUN dotnet restore "OcelotApiGw.csproj"
 
 # Copy everything else and build
-COPY . ./
+COPY . .
 RUN dotnet publish "OcelotApiGw.csproj" -c Release -o out
 
 # Build runtime image
