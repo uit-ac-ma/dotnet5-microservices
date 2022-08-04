@@ -1,19 +1,18 @@
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
+WORKDIR /app
+
+# Copy everything
+COPY ./src/ApiGateways/OcelotApiGw/OcelotApiGw.csproj .
+# Restore as distinct layers
+RUN dotnet restore "OcelotApiGw.csproj"
+
+COPY ./src/ApiGateways/OcelotApiGw/. .
+# Build and publish a release
+RUN dotnet publish "OcelotApiGw.csproj" -c Release -o out
+
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
 EXPOSE 80
-
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR /src
-COPY ["ApiGateways/OcelotApiGw/OcelotApiGw.csproj", "ApiGateways/OcelotApiGw/"]
-RUN dotnet restore "ApiGateways/OcelotApiGw/OcelotApiGw.csproj"
-COPY . .
-WORKDIR "/src/ApiGateways/OcelotApiGw"
-RUN dotnet build "OcelotApiGw.csproj" -c Release -o /app/build
-
-FROM build AS publish
-RUN dotnet publish "OcelotApiGw.csproj" -c Release -o /app/publish
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "OcelotApiGw.dll"]
