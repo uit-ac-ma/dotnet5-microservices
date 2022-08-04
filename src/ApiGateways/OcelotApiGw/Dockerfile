@@ -2,11 +2,11 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
 WORKDIR /app
 
 # Copy everything
-COPY OcelotApiGw.csproj .
+COPY ./src/ApiGateways/OcelotApiGw/OcelotApiGw.csproj .
 # Restore as distinct layers
 RUN dotnet restore "OcelotApiGw.csproj"
 
-COPY . .
+COPY ./src/ApiGateways/OcelotApiGw/. .
 # Build and publish a release
 RUN dotnet publish "OcelotApiGw.csproj" -c Release -o out
 
