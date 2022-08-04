@@ -21,7 +21,7 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: ./src/ApiGateways/OcelotApiGw/Dockerfile
+          context: ./src/ApiGateways/OcelotApiGw/
+          file: Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ocelotapigw:latest
