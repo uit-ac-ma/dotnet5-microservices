@@ -2,7 +2,7 @@ name: Docker CI
 
 on:
   push:
-    branches: ["main"]
+    branches: ["dev"]
 
 jobs:
   build:
@@ -22,6 +22,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./src/WebApps/AspnetRunBasics/Dockerfile
+          file: ./src/ApiGateways/OcelotApiGw/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/webui:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ocelotapigw:latest
